@@ -16,6 +16,32 @@ export function joinFragments(parts: Array<string | undefined>): string {
   return parts.filter((part): part is string => Boolean(part && part.trim())).join("\n");
 }
 
+/** Remove shared indentation from multi-line code snippets. */
+export function stripCommonIndentation(value: string): string {
+  const lines = value.split("\n");
+
+  while (lines.length && !lines[0]?.trim()) {
+    lines.shift();
+  }
+
+  while (lines.length && !lines.at(-1)?.trim()) {
+    lines.pop();
+  }
+
+  if (!lines.length) {
+    return "";
+  }
+
+  const maybeIndentations = lines
+    .filter((line) => line.trim())
+    .map((line) => line.match(/^\s*/)?.[0].length ?? 0);
+  const smallestIndentation = Math.min(...maybeIndentations);
+
+  return lines
+    .map((line) => (line.trim() ? line.slice(smallestIndentation) : ""))
+    .join("\n");
+}
+
 /** Render a consistent label pair used inside generated SVG cards. */
 export function renderLabelRow(label: string, value: string, y: number): string {
   return [

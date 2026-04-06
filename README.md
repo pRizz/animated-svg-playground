@@ -71,6 +71,7 @@ A clipped pattern inside a circle to verify clipPath defs usage.
 
 ![clipPath example](generated/svg/static-clip-path.svg)
 
+
 ### Gradient fill
 
 Linear gradient with a simple glossy badge shape.
@@ -80,6 +81,7 @@ Linear gradient with a simple glossy badge shape.
 - **File:** `generated/svg/static-gradient-fill.svg`
 
 ![Gradient fill](generated/svg/static-gradient-fill.svg)
+
 
 ### Path and stroke
 
@@ -91,6 +93,7 @@ Curved path with visible control-point markers and thick stroke styling.
 
 ![Path and stroke](generated/svg/static-path-stroke.svg)
 
+
 ### Simple circle
 
 Single filled circle with a baseline label and no animation.
@@ -100,6 +103,7 @@ Single filled circle with a baseline label and no animation.
 - **File:** `generated/svg/static-simple-circle.svg`
 
 ![Simple circle](generated/svg/static-simple-circle.svg)
+
 
 ### Simple rect
 
@@ -111,6 +115,7 @@ Rounded rectangle with stroke and layered highlight.
 
 ![Simple rect](generated/svg/static-simple-rect.svg)
 
+
 ### Text example
 
 Mixed text sizes and weights to probe plain SVG text rendering.
@@ -120,6 +125,7 @@ Mixed text sizes and weights to probe plain SVG text rendering.
 - **File:** `generated/svg/static-text-label.svg`
 
 ![Text example](generated/svg/static-text-label.svg)
+
 
 ## SMIL animation primitives
 
@@ -135,6 +141,33 @@ Stacks repeated translation and rotation using additive and accumulate behavior.
 
 ![SMIL additive accumulate](generated/svg/smil-additive-accumulate.svg)
 
+**Relevant animation code:**
+
+```svg
+<polygon points="0,-26 22,16 -22,16" fill="#facc15">
+  <animateTransform
+    attributeName="transform"
+    type="rotate"
+    from="0"
+    to="120"
+    dur="1s"
+    repeatCount="3"
+    additive="sum"
+    accumulate="sum"
+  />
+  <animateTransform
+    attributeName="transform"
+    type="translate"
+    values="0 0;10 0;0 0"
+    begin="0s"
+    dur="1s"
+    repeatCount="3"
+    additive="sum"
+  />
+</polygon>
+```
+
+
 ### SMIL animate for cx
 
 Moves a circle horizontally by animating the cx attribute.
@@ -144,6 +177,20 @@ Moves a circle horizontally by animating the cx attribute.
 - **File:** `generated/svg/smil-animate-cx.svg`
 
 ![SMIL animate for cx](generated/svg/smil-animate-cx.svg)
+
+**Relevant animation code:**
+
+```svg
+<circle cx="60" cy="108" r="18" fill="#22d3ee">
+  <animate
+    attributeName="cx"
+    values="60;260;60"
+    dur="2.8s"
+    repeatCount="indefinite"
+  />
+</circle>
+```
+
 
 ### SMIL animate for fill
 
@@ -155,6 +202,20 @@ Cycles a rectangle through multiple fill colors.
 
 ![SMIL animate for fill](generated/svg/smil-animate-fill.svg)
 
+**Relevant animation code:**
+
+```svg
+<rect x="96" y="70" width="128" height="72" rx="18" fill="#38bdf8">
+  <animate
+    attributeName="fill"
+    values="#38bdf8;#f472b6;#facc15;#38bdf8"
+    dur="3s"
+    repeatCount="indefinite"
+  />
+</rect>
+```
+
+
 ### SMIL animateMotion path follow
 
 Moves a dot along a visible guide path.
@@ -164,6 +225,26 @@ Moves a dot along a visible guide path.
 - **File:** `generated/svg/smil-motion-path.svg`
 
 ![SMIL animateMotion path follow](generated/svg/smil-motion-path.svg)
+
+**Relevant animation code:**
+
+```svg
+<path
+  id="motion-track"
+  d="M 40 124 C 96 50, 224 50, 280 124"
+  fill="none"
+  stroke="#334155"
+  stroke-width="5"
+  stroke-linecap="round"
+/>
+
+<circle cx="0" cy="0" r="14" fill="#f43f5e">
+  <animateMotion dur="3s" repeatCount="indefinite" rotate="auto">
+    <mpath href="#motion-track" />
+  </animateMotion>
+</circle>
+```
+
 
 ### SMIL multiple animate elements
 
@@ -175,6 +256,22 @@ Animates position, radius, and fill on one element at the same time.
 
 ![SMIL multiple animate elements](generated/svg/smil-multiple-animations.svg)
 
+**Relevant animation code:**
+
+```svg
+<circle cx="74" cy="106" r="16" fill="#38bdf8">
+  <animate attributeName="cx" values="74;246;74" dur="3s" repeatCount="indefinite" />
+  <animate attributeName="r" values="16;28;16" dur="1.5s" repeatCount="indefinite" />
+  <animate
+    attributeName="fill"
+    values="#38bdf8;#f43f5e;#a855f7;#38bdf8"
+    dur="3s"
+    repeatCount="indefinite"
+  />
+</circle>
+```
+
+
 ### SMIL opacity pulse
 
 Pulses element opacity with a simple animate element.
@@ -184,6 +281,20 @@ Pulses element opacity with a simple animate element.
 - **File:** `generated/svg/smil-opacity-pulse.svg`
 
 ![SMIL opacity pulse](generated/svg/smil-opacity-pulse.svg)
+
+**Relevant animation code:**
+
+```svg
+<circle cx="160" cy="104" r="34" fill="#a855f7">
+  <animate
+    attributeName="opacity"
+    values="1;0.2;1"
+    dur="1.8s"
+    repeatCount="indefinite"
+  />
+</circle>
+```
+
 
 ### SMIL set with timing offsets
 
@@ -195,6 +306,29 @@ Uses set elements to toggle visibility with begin offsets and durations.
 
 ![SMIL set with timing offsets](generated/svg/smil-set-toggle-timing.svg)
 
+**Relevant animation code:**
+
+```svg
+<circle cx="110" cy="104" r="24" fill="#22c55e" visibility="hidden">
+  <set
+    attributeName="visibility"
+    to="visible"
+    begin="0s;dot2.end+0.2s"
+    dur="0.9s"
+  />
+</circle>
+
+<circle id="dot2" cx="210" cy="104" r="24" fill="#f97316" visibility="hidden">
+  <set
+    attributeName="visibility"
+    to="visible"
+    begin="0.7s"
+    dur="0.9s"
+  />
+</circle>
+```
+
+
 ### SMIL transform rotate, scale, translate
 
 Runs three animateTransform variants side-by-side.
@@ -204,6 +338,44 @@ Runs three animateTransform variants side-by-side.
 - **File:** `generated/svg/smil-transform-suite.svg`
 
 ![SMIL transform rotate, scale, translate](generated/svg/smil-transform-suite.svg)
+
+**Relevant animation code:**
+
+```svg
+<rect x="-14" y="-14" width="28" height="28" rx="6" fill="#38bdf8">
+  <animateTransform
+    attributeName="transform"
+    type="rotate"
+    from="0"
+    to="360"
+    dur="3.5s"
+    repeatCount="indefinite"
+  />
+</rect>
+
+<circle cx="0" cy="0" r="18" fill="#22c55e">
+  <animateTransform
+    attributeName="transform"
+    type="scale"
+    values="1;1.45;1"
+    dur="2s"
+    repeatCount="indefinite"
+    additive="sum"
+  />
+</circle>
+
+<rect x="-18" y="-12" width="36" height="24" rx="6" fill="#f97316">
+  <animateTransform
+    attributeName="transform"
+    type="translate"
+    values="0 0;-18 0;0 0;18 0;0 0"
+    dur="2.4s"
+    repeatCount="indefinite"
+    additive="sum"
+  />
+</rect>
+```
+
 
 ## Stroke drawing effects
 
@@ -219,6 +391,31 @@ A circular arc animates with stroke dashes like a progress ring.
 
 ![Circular progress animation](generated/svg/stroke-circle-progress.svg)
 
+**Relevant animation code:**
+
+```svg
+<g transform="rotate(-90 160 104)">
+  <circle
+    cx="160"
+    cy="104"
+    r="42"
+    fill="none"
+    stroke="#22c55e"
+    stroke-width="12"
+    stroke-linecap="round"
+    stroke-dasharray="0 264"
+  >
+    <animate
+      attributeName="stroke-dasharray"
+      values="0 264;180 84;264 0;0 264"
+      dur="4s"
+      repeatCount="indefinite"
+    />
+  </circle>
+</g>
+```
+
+
 ### Stroke dash reveal
 
 Uses dash offset animation to reveal a polyline drawing.
@@ -229,6 +426,30 @@ Uses dash offset animation to reveal a polyline drawing.
 
 ![Stroke dash reveal](generated/svg/stroke-dash-reveal.svg)
 
+**Relevant animation code:**
+
+```svg
+<path
+  d="M48 126 L96 84 L144 112 L184 66 L232 88 L272 60"
+  fill="none"
+  stroke="#38bdf8"
+  stroke-width="8"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-dasharray="320"
+  stroke-dashoffset="320"
+>
+  <animate
+    attributeName="stroke-dashoffset"
+    from="320"
+    to="0"
+    dur="3s"
+    repeatCount="indefinite"
+  />
+</path>
+```
+
+
 ### Looping line draw
 
 A looping rectangular route continuously redraws itself.
@@ -238,6 +459,29 @@ A looping rectangular route continuously redraws itself.
 - **File:** `generated/svg/stroke-loop-draw.svg`
 
 ![Looping line draw](generated/svg/stroke-loop-draw.svg)
+
+**Relevant animation code:**
+
+```svg
+<path
+  d="M70 70 H250 Q266 70 266 86 V114 Q266 130 250 130 H70 Q54 130 54 114 V86 Q54 70 70 70 Z"
+  fill="none"
+  stroke="#f59e0b"
+  stroke-width="6"
+  stroke-linecap="round"
+  stroke-dasharray="420"
+  stroke-dashoffset="420"
+>
+  <animate
+    attributeName="stroke-dashoffset"
+    from="420"
+    to="0"
+    dur="2.4s"
+    repeatCount="indefinite"
+  />
+</path>
+```
+
 
 ## CSS-based SVG animation experiments
 
@@ -253,6 +497,22 @@ Class-based color cycling for a central badge.
 
 ![CSS color transition](generated/svg/css-color-transition.svg)
 
+**Relevant animation code:**
+
+```css
+.badge {
+  fill: #22c55e;
+  animation: badge-color 2.8s linear infinite alternate;
+}
+
+@keyframes badge-color {
+  0% { fill: #22c55e; }
+  50% { fill: #14b8a6; }
+  100% { fill: #6366f1; }
+}
+```
+
+
 ### CSS keyframes movement
 
 Inline style block animating horizontal movement with keyframes.
@@ -262,6 +522,27 @@ Inline style block animating horizontal movement with keyframes.
 - **File:** `generated/svg/css-keyframes-move.svg`
 
 ![CSS keyframes movement](generated/svg/css-keyframes-move.svg)
+
+**Relevant animation code:**
+
+```css
+.runner {
+  animation: slide-runner 2.4s ease-in-out infinite alternate;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes slide-runner {
+  from {
+    transform: translateX(0px);
+  }
+
+  to {
+    transform: translateX(164px);
+  }
+}
+```
+
 
 ### CSS opacity blink
 
@@ -273,6 +554,28 @@ Simple blinking dots using a shared class and staggered timing.
 
 ![CSS opacity blink](generated/svg/css-opacity-blink.svg)
 
+**Relevant animation code:**
+
+```css
+.blink {
+  animation: blink-cycle 1.8s ease-in-out infinite;
+}
+
+.delay-1 {
+  animation-delay: 0.3s;
+}
+
+.delay-2 {
+  animation-delay: 0.6s;
+}
+
+@keyframes blink-cycle {
+  0%, 100% { opacity: 0.2; }
+  40% { opacity: 1; }
+}
+```
+
+
 ### CSS stroke reveal
 
 Path reveal using stroke-dashoffset animated through CSS.
@@ -282,6 +585,31 @@ Path reveal using stroke-dashoffset animated through CSS.
 - **File:** `generated/svg/css-stroke-reveal.svg`
 
 ![CSS stroke reveal](generated/svg/css-stroke-reveal.svg)
+
+**Relevant animation code:**
+
+```css
+.trace {
+  fill: none;
+  stroke: #38bdf8;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 320;
+  stroke-dashoffset: 320;
+  animation: trace-line 2.2s linear infinite;
+}
+
+@keyframes trace-line {
+  from {
+    stroke-dashoffset: 320;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+```
+
 
 ## Feature edge cases
 
@@ -297,6 +625,7 @@ Uses a blur and offset filter chain to simulate a shadowed card.
 
 ![Filter with drop shadow](generated/svg/edge-filter-shadow.svg)
 
+
 ### foreignObject HTML block
 
 Embeds HTML inside the SVG as a browser-oriented compatibility edge case.
@@ -306,6 +635,7 @@ Embeds HTML inside the SVG as a browser-oriented compatibility edge case.
 - **File:** `generated/svg/edge-foreign-object.svg`
 
 ![foreignObject HTML block](generated/svg/edge-foreign-object.svg)
+
 
 ### Script tag negative test
 
@@ -317,6 +647,7 @@ Includes a tiny script to confirm that active content is blocked or ignored.
 
 ![Script tag negative test](generated/svg/edge-script-negative.svg)
 
+
 ### Symbol and use reuse
 
 Reuses one symbol instance at multiple sizes to test defs-based reuse.
@@ -326,6 +657,7 @@ Reuses one symbol instance at multiple sizes to test defs-based reuse.
 - **File:** `generated/svg/edge-symbol-reuse.svg`
 
 ![Symbol and use reuse](generated/svg/edge-symbol-reuse.svg)
+
 
 <!-- GENERATED_GALLERY_END -->
 

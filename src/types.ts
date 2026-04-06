@@ -17,6 +17,11 @@ export interface ExampleCategory {
   description: string;
 }
 
+export interface AnimationSnippet {
+  language: "css" | "svg";
+  code: string;
+}
+
 export interface ExampleDefinition {
   id: string;
   title: string;
@@ -25,6 +30,7 @@ export interface ExampleDefinition {
   category: ExampleCategoryId;
   expectation: CompatibilityExpectation;
   compatibilityNotes: string;
+  maybeAnimationSnippet?: AnimationSnippet;
   renderSvg: () => string;
 }
 

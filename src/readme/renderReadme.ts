@@ -8,10 +8,25 @@ import {
 import type { ExampleDefinition } from "../types.ts";
 import { escapeXml, groupByKey, renderGeneratedSvgPath } from "../svg/helpers.ts";
 
-function renderExampleBlock(example: ExampleDefinition): string {
-  const imagePath = renderGeneratedSvgPath(example.filename);
+function renderAnimationSnippetBlock(example: ExampleDefinition): string {
+  if (!example.maybeAnimationSnippet) {
+    return "";
+  }
 
   return [
+    "**Relevant animation code:**",
+    "",
+    `\`\`\`${example.maybeAnimationSnippet.language}`,
+    example.maybeAnimationSnippet.code,
+    "```",
+    "",
+  ].join("\n");
+}
+
+function renderExampleBlock(example: ExampleDefinition): string {
+  const imagePath = renderGeneratedSvgPath(example.filename);
+  const maybeAnimationSnippetBlock = renderAnimationSnippetBlock(example);
+  const sectionLines = [
     `### ${example.title}`,
     "",
     `${example.description}`,
@@ -22,7 +37,14 @@ function renderExampleBlock(example: ExampleDefinition): string {
     "",
     `![${escapeXml(example.title)}](${imagePath})`,
     "",
-  ].join("\n");
+  ];
+
+  if (maybeAnimationSnippetBlock) {
+    sectionLines.push(maybeAnimationSnippetBlock);
+  }
+
+  sectionLines.push("");
+  return sectionLines.join("\n");
 }
 
 function renderGeneratedGallery(examples: ExampleDefinition[]): string {

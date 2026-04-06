@@ -1,6 +1,6 @@
 import type { ExampleDefinition } from "../types.ts";
 import { renderSvgDocument, renderStandardScene } from "../svg/base.ts";
-import { joinFragments, renderSceneLabel } from "../svg/helpers.ts";
+import { joinFragments, renderSceneLabel, stripCommonIndentation } from "../svg/helpers.ts";
 
 function createStrokeExample(
   id: string,
@@ -9,6 +9,7 @@ function createStrokeExample(
   filename: string,
   compatibilityNotes: string,
   body: string,
+  animationCode: string,
 ): ExampleDefinition {
   return {
     id,
@@ -18,6 +19,10 @@ function createStrokeExample(
     category: "stroke",
     expectation: "Likely works in browsers",
     compatibilityNotes,
+    maybeAnimationSnippet: {
+      language: "svg",
+      code: animationCode,
+    },
     renderSvg: () =>
       renderSvgDocument({
         title,
@@ -50,6 +55,26 @@ export function getStrokeExamples(): ExampleDefinition[] {
         </path>`,
         `<text x="120" y="144" text-anchor="middle" fill="#e2e8f0" font-size="12">dash reveal</text>`,
       ]),
+      stripCommonIndentation(`
+        <path
+          d="M48 126 L96 84 L144 112 L184 66 L232 88 L272 60"
+          fill="none"
+          stroke="#38bdf8"
+          stroke-width="8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-dasharray="320"
+          stroke-dashoffset="320"
+        >
+          <animate
+            attributeName="stroke-dashoffset"
+            from="320"
+            to="0"
+            dur="3s"
+            repeatCount="indefinite"
+          />
+        </path>
+      `),
     ),
     createStrokeExample(
       "stroke-loop-draw",
@@ -71,6 +96,25 @@ export function getStrokeExamples(): ExampleDefinition[] {
         </path>`,
         `<text x="160" y="106" text-anchor="middle" fill="#f8fafc" font-size="13">looping draw</text>`,
       ]),
+      stripCommonIndentation(`
+        <path
+          d="M70 70 H250 Q266 70 266 86 V114 Q266 130 250 130 H70 Q54 130 54 114 V86 Q54 70 70 70 Z"
+          fill="none"
+          stroke="#f59e0b"
+          stroke-width="6"
+          stroke-linecap="round"
+          stroke-dasharray="420"
+          stroke-dashoffset="420"
+        >
+          <animate
+            attributeName="stroke-dashoffset"
+            from="420"
+            to="0"
+            dur="2.4s"
+            repeatCount="indefinite"
+          />
+        </path>
+      `),
     ),
     createStrokeExample(
       "stroke-circle-progress",
@@ -96,6 +140,27 @@ export function getStrokeExamples(): ExampleDefinition[] {
         `</g>`,
         `<text x="160" y="109" text-anchor="middle" fill="#f8fafc" font-size="13">progress ring</text>`,
       ]),
+      stripCommonIndentation(`
+        <g transform="rotate(-90 160 104)">
+          <circle
+            cx="160"
+            cy="104"
+            r="42"
+            fill="none"
+            stroke="#22c55e"
+            stroke-width="12"
+            stroke-linecap="round"
+            stroke-dasharray="0 264"
+          >
+            <animate
+              attributeName="stroke-dasharray"
+              values="0 264;180 84;264 0;0 264"
+              dur="4s"
+              repeatCount="indefinite"
+            />
+          </circle>
+        </g>
+      `),
     ),
   ];
 }
