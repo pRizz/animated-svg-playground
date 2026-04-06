@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SVG Animation Compatibility Gallery Preview</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: Inter, system-ui, sans-serif;
+        background: #020617;
+        color: #e2e8f0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 32px;
+        background: linear-gradient(180deg, #020617 0%, #0f172a 100%);
+      }
+
+      main {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        margin-top: 0;
+        font-size: 2.2rem;
+      }
+
+      p {
+        color: #cbd5e1;
+      }
+
+      section + section {
+        margin-top: 40px;
+      }
+
+      .category-description {
+        margin-top: -8px;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 20px;
+      }
+
+      .card {
+        border: 1px solid #1e293b;
+        border-radius: 20px;
+        overflow: hidden;
+        background: rgba(15, 23, 42, 0.92);
+        box-shadow: 0 24px 48px rgba(2, 6, 23, 0.3);
+      }
+
+      .card img {
+        display: block;
+        width: 100%;
+        border-bottom: 1px solid #1e293b;
+        background: #020617;
+      }
+
+      .card-body {
+        padding: 18px;
+      }
+
+      .card-body h3 {
+        margin: 0 0 8px;
+      }
+
+      .card-body ul {
+        padding-left: 20px;
+        color: #cbd5e1;
+      }
+
+      code {
+        background: rgba(15, 23, 42, 0.75);
+        border: 1px solid #334155;
+        border-radius: 6px;
+        padding: 2px 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>SVG Animation Compatibility Gallery</h1>
+      <p>
+        This local preview mirrors the generated README gallery while making it easier to inspect every SVG
+        side-by-side in a normal browser.
+      </p>
+      
+        <section>
+          <h2>Basic static SVG controls</h2>
+          <p class="category-description">Baseline primitives and non-animated SVG features.</p>
+          <div class="card-grid">
+            
+            <article class="card">
+              <img src="./svg/static-clip-path.svg" alt="clipPath example" loading="lazy" />
+              <div class="card-body">
+                <h3>clipPath example</h3>
+                <p>A clipped pattern inside a circle to verify clipPath defs usage.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> May work on GitHub</li>
+                  <li><strong>Notes:</strong> clipPath often works, but it is useful to verify defs-heavy features directly in GitHub.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/static-clip-path.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+
+            <article class="card">
+              <img src="./svg/static-gradient-fill.svg" alt="Gradient fill" loading="lazy" />
+              <div class="card-body">
+                <h3>Gradient fill</h3>
+                <p>Linear gradient with a simple glossy badge shape.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> May work on GitHub</li>
+                  <li><strong>Notes:</strong> Gradient defs are commonly supported, but they verify that defs survive the renderer.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/static-gradient-fill.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+
+            <article class="card">
+              <img src="./svg/static-path-stroke.svg" alt="Path and stroke" loading="lazy" />
+              <div class="card-body">
+                <h3>Path and stroke</h3>
+                <p>Curved path with visible control-point markers and thick stroke styling.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> May work on GitHub</li>
+                  <li><strong>Notes:</strong> Complex paths still render as plain SVG and are usually safe on GitHub.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/static-path-stroke.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+
+            <article class="card">
+              <img src="./svg/static-simple-circle.svg" alt="Simple circle" loading="lazy" />
+              <div class="card-body">
+                <h3>Simple circle</h3>
+                <p>Single filled circle with a baseline label and no animation.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> May work on GitHub</li>
+                  <li><strong>Notes:</strong> Plain shape rendering is typically stable in browsers and GitHub image rendering.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/static-simple-circle.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+
+            <article class="card">
+              <img src="./svg/static-simple-rect.svg" alt="Simple rect" loading="lazy" />
+              <div class="card-body">
+                <h3>Simple rect</h3>
+                <p>Rounded rectangle with stroke and layered highlight.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> May work on GitHub</li>
+                  <li><strong>Notes:</strong> Inline rectangle geometry and stroke attributes should be broadly compatible.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/static-simple-rect.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+
+            <article class="card">
+              <img src="./svg/static-text-label.svg" alt="Text example" loading="lazy" />
+              <div class="card-body">
+                <h3>Text example</h3>
+                <p>Mixed text sizes and weights to probe plain SVG text rendering.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> May work on GitHub</li>
+                  <li><strong>Notes:</strong> SVG text generally works, though font metrics may vary between environments.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/static-text-label.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+          </div>
+        </section>
+      
+
+        <section>
+          <h2>SMIL animation primitives</h2>
+          <p class="category-description">SVG-native animation elements such as animate and animateTransform.</p>
+          <div class="card-grid">
+            
+            <article class="card">
+              <img src="./svg/smil-additive-accumulate.svg" alt="SMIL additive accumulate" loading="lazy" />
+              <div class="card-body">
+                <h3>SMIL additive accumulate</h3>
+                <p>Stacks repeated translation and rotation using additive and accumulate behavior.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> Likely works in browsers</li>
+                  <li><strong>Notes:</strong> More advanced SMIL timing model coverage; if unsupported, the shape may appear static or partially animated.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/smil-additive-accumulate.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+
+            <article class="card">
+              <img src="./svg/smil-animate-cx.svg" alt="SMIL animate for cx" loading="lazy" />
+              <div class="card-body">
+                <h3>SMIL animate for cx</h3>
+                <p>Moves a circle horizontally by animating the cx attribute.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> Likely works in browsers</li>
+                  <li><strong>Notes:</strong> A direct animate-on-attribute test. Browsers usually support it, while GitHub may show only the initial frame.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/smil-animate-cx.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+
+            <article class="card">
+              <img src="./svg/smil-animate-fill.svg" alt="SMIL animate for fill" loading="lazy" />
+              <div class="card-body">
+                <h3>SMIL animate for fill</h3>
+                <p>Cycles a rectangle through multiple fill colors.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> Likely works in browsers</li>
+                  <li><strong>Notes:</strong> Good for checking whether animated presentation attributes survive rendering.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/smil-animate-fill.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+
+            <article class="card">
+              <img src="./svg/smil-motion-path.svg" alt="SMIL animateMotion path follow" loading="lazy" />
+              <div class="card-body">
+                <h3>SMIL animateMotion path follow</h3>
+                <p>Moves a dot along a visible guide path.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> Likely works in browsers</li>
+                  <li><strong>Notes:</strong> animateMotion is historically less universal than basic animate, making it a good compatibility probe.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/smil-motion-path.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+
+            <article class="card">
+              <img src="./svg/smil-multiple-animations.svg" alt="SMIL multiple animate elements" loading="lazy" />
+              <div class="card-body">
+                <h3>SMIL multiple animate elements</h3>
+                <p>Animates position, radius, and fill on one element at the same time.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> Likely works in browsers</li>
+                  <li><strong>Notes:</strong> Good for testing whether multiple child animation nodes on the same target are all honored.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/smil-multiple-animations.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+
+            <article class="card">
+              <img src="./svg/smil-opacity-pulse.svg" alt="SMIL opacity pulse" loading="lazy" />
+              <div class="card-body">
+                <h3>SMIL opacity pulse</h3>
+                <p>Pulses element opacity with a simple animate element.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> Likely works in browsers</li>
+                  <li><strong>Notes:</strong> Useful for determining whether opacity changes animate or only the static state is shown.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/smil-opacity-pulse.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+
+            <article class="card">
+              <img src="./svg/smil-set-toggle-timing.svg" alt="SMIL set with timing offsets" loading="lazy" />
+              <div class="card-body">
+                <h3>SMIL set with timing offsets</h3>
+                <p>Uses set elements to toggle visibility with begin offsets and durations.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> Likely works in browsers</li>
+                  <li><strong>Notes:</strong> Tests set timing behavior, which can be easier to reason about than full interpolation.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/smil-set-toggle-timing.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+
+            <article class="card">
+              <img src="./svg/smil-transform-suite.svg" alt="SMIL transform rotate, scale, translate" loading="lazy" />
+              <div class="card-body">
+                <h3>SMIL transform rotate, scale, translate</h3>
+                <p>Runs three animateTransform variants side-by-side.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> Likely works in browsers</li>
+                  <li><strong>Notes:</strong> Combines rotate, scale, and translate to compare transform-specific behavior in one SVG.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/smil-transform-suite.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+          </div>
+        </section>
+      
+
+        <section>
+          <h2>Stroke drawing effects</h2>
+          <p class="category-description">Dash-based reveal and looping stroke animations.</p>
+          <div class="card-grid">
+            
+            <article class="card">
+              <img src="./svg/stroke-circle-progress.svg" alt="Circular progress animation" loading="lazy" />
+              <div class="card-body">
+                <h3>Circular progress animation</h3>
+                <p>A circular arc animates with stroke dashes like a progress ring.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> Likely works in browsers</li>
+                  <li><strong>Notes:</strong> The static ring should render everywhere; the animated progress effect may be browser-only in practice.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/stroke-circle-progress.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+
+            <article class="card">
+              <img src="./svg/stroke-dash-reveal.svg" alt="Stroke dash reveal" loading="lazy" />
+              <div class="card-body">
+                <h3>Stroke dash reveal</h3>
+                <p>Uses dash offset animation to reveal a polyline drawing.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> Likely works in browsers</li>
+                  <li><strong>Notes:</strong> Dash styling usually renders on GitHub, but animation may not play there.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/stroke-dash-reveal.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+
+            <article class="card">
+              <img src="./svg/stroke-loop-draw.svg" alt="Looping line draw" loading="lazy" />
+              <div class="card-body">
+                <h3>Looping line draw</h3>
+                <p>A looping rectangular route continuously redraws itself.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> Likely works in browsers</li>
+                  <li><strong>Notes:</strong> This is still SMIL-based, so browser support is stronger than GitHub playback.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/stroke-loop-draw.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+          </div>
+        </section>
+      
+
+        <section>
+          <h2>CSS-based SVG animation experiments</h2>
+          <p class="category-description">Inline style blocks, classes, and CSS keyframe animation inside SVG.</p>
+          <div class="card-grid">
+            
+            <article class="card">
+              <img src="./svg/css-color-transition.svg" alt="CSS color transition" loading="lazy" />
+              <div class="card-body">
+                <h3>CSS color transition</h3>
+                <p>Class-based color cycling for a central badge.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> May work on GitHub</li>
+                  <li><strong>Notes:</strong> Embedded style tags may be preserved in some contexts but are not guaranteed on GitHub.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/css-color-transition.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+
+            <article class="card">
+              <img src="./svg/css-keyframes-move.svg" alt="CSS keyframes movement" loading="lazy" />
+              <div class="card-body">
+                <h3>CSS keyframes movement</h3>
+                <p>Inline style block animating horizontal movement with keyframes.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> May work on GitHub</li>
+                  <li><strong>Notes:</strong> CSS animation inside SVG tends to work in browsers, but GitHub may render a static first frame.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/css-keyframes-move.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+
+            <article class="card">
+              <img src="./svg/css-opacity-blink.svg" alt="CSS opacity blink" loading="lazy" />
+              <div class="card-body">
+                <h3>CSS opacity blink</h3>
+                <p>Simple blinking dots using a shared class and staggered timing.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> May work on GitHub</li>
+                  <li><strong>Notes:</strong> A useful experiment for whether CSS animation survives sanitization or becomes a static snapshot.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/css-opacity-blink.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+
+            <article class="card">
+              <img src="./svg/css-stroke-reveal.svg" alt="CSS stroke reveal" loading="lazy" />
+              <div class="card-body">
+                <h3>CSS stroke reveal</h3>
+                <p>Path reveal using stroke-dashoffset animated through CSS.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> May work on GitHub</li>
+                  <li><strong>Notes:</strong> This combines class-based styling and dash animation, which is informative for browser-vs-GitHub comparisons.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/css-stroke-reveal.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+          </div>
+        </section>
+      
+
+        <section>
+          <h2>Feature edge cases</h2>
+          <p class="category-description">Reuse, filters, and features that are often sanitized or inconsistent.</p>
+          <div class="card-grid">
+            
+            <article class="card">
+              <img src="./svg/edge-filter-shadow.svg" alt="Filter with drop shadow" loading="lazy" />
+              <div class="card-body">
+                <h3>Filter with drop shadow</h3>
+                <p>Uses a blur and offset filter chain to simulate a shadowed card.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> May work on GitHub</li>
+                  <li><strong>Notes:</strong> Basic filters often work in browsers, but GitHub may sanitize or flatten them differently.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/edge-filter-shadow.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+
+            <article class="card">
+              <img src="./svg/edge-foreign-object.svg" alt="foreignObject HTML block" loading="lazy" />
+              <div class="card-body">
+                <h3>foreignObject HTML block</h3>
+                <p>Embeds HTML inside the SVG as a browser-oriented compatibility edge case.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> Likely sanitized or ignored on GitHub</li>
+                  <li><strong>Notes:</strong> foreignObject content is a known sanitization risk and is often stripped or rendered inconsistently on GitHub.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/edge-foreign-object.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+
+            <article class="card">
+              <img src="./svg/edge-script-negative.svg" alt="Script tag negative test" loading="lazy" />
+              <div class="card-body">
+                <h3>Script tag negative test</h3>
+                <p>Includes a tiny script to confirm that active content is blocked or ignored.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> Likely sanitized or ignored on GitHub</li>
+                  <li><strong>Notes:</strong> Script execution in SVG is typically blocked in repository rendering for security reasons.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/edge-script-negative.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+
+            <article class="card">
+              <img src="./svg/edge-symbol-reuse.svg" alt="Symbol and use reuse" loading="lazy" />
+              <div class="card-body">
+                <h3>Symbol and use reuse</h3>
+                <p>Reuses one symbol instance at multiple sizes to test defs-based reuse.</p>
+                <ul>
+                  <li><strong>Expectation:</strong> May work on GitHub</li>
+                  <li><strong>Notes:</strong> Symbol and use are usually preserved, but symbol references are still worth checking in repository rendering.</li>
+                  <li><strong>Path:</strong> <code>generated/svg/edge-symbol-reuse.svg</code></li>
+                </ul>
+              </div>
+            </article>
+          
+          </div>
+        </section>
+      
+    </main>
+  </body>
+</html>

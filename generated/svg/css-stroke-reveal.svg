@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="180" viewBox="0 0 320 180" role="img" aria-labelledby="title desc">
+<title id="title">CSS stroke reveal</title>
+<desc id="desc">Path reveal using stroke-dashoffset animated through CSS.</desc>
+<style>
+
+        .trace {
+          fill: none;
+          stroke: #38bdf8;
+          stroke-width: 8;
+          stroke-linecap: round;
+          stroke-dasharray: 320;
+          stroke-dashoffset: 320;
+          animation: trace-line 2.2s linear infinite;
+        }
+
+        @keyframes trace-line {
+          from {
+            stroke-dashoffset: 320;
+          }
+
+          to {
+            stroke-dashoffset: 0;
+          }
+        }
+      
+</style>
+<rect width="320" height="180" rx="18" fill="#020617"/>
+<rect x="8" y="8" width="304" height="164" rx="16" fill="#0f172a" stroke="#1e293b"/>
+<text x="16" y="24" fill="#f8fafc" font-size="16" font-weight="700" font-family="Inter, Arial, sans-serif">CSS stroke reveal</text>
+<text x="16" y="38" fill="#94a3b8" font-size="11" font-family="Inter, Arial, sans-serif">Path reveal using stroke-dashoffset animated through CSS.</text>
+<text x="16" y="60" fill="#94a3b8" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">CANVAS</text>
+<text x="82" y="60" fill="#e2e8f0" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">320×180</text>
+<rect x="16" y="48" width="288" height="116" rx="14" fill="#111827" stroke="#334155"/>
+<g opacity="0.24">
+<path d="M16 106 H304" stroke="#1e293b" stroke-width="1"/>
+<path d="M16 76 H304" stroke="#1e293b" stroke-width="1"/>
+<path d="M96 48 V164" stroke="#1e293b" stroke-width="1"/>
+<path d="M176 48 V164" stroke="#1e293b" stroke-width="1"/>
+<path d="M256 48 V164" stroke="#1e293b" stroke-width="1"/>
+</g>
+<text x="30" y="154" fill="#94a3b8" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">embedded &lt;style&gt; and class selectors</text>
+
+        <path class="trace" d="M42 124 C78 54, 128 56, 160 110 S238 150, 278 80" />
+        <circle cx="42" cy="124" r="5" fill="#38bdf8" />
+        <circle cx="278" cy="80" r="5" fill="#38bdf8" />
+        <text x="46" y="146" fill="#94a3b8" font-size="11">stroke-dashoffset animated from CSS</text>
+      
+
+</svg>

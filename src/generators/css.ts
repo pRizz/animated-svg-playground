@@ -153,37 +153,5 @@ export function getCssExamples(): ExampleDefinition[] {
       `,
       "May work on GitHub",
     ),
-    createCssExample(
-      "css-class-styles",
-      "CSS class-based styling",
-      "Uses shared classes and an embedded style tag without motion to test style application alone.",
-      "css-class-styles.svg",
-      "This isolates embedded style tags and class selectors from animation timing behavior.",
-      `
-        <circle class="dot cool" cx="94" cy="106" r="22" />
-        <circle class="dot warm" cx="160" cy="106" r="22" />
-        <circle class="dot neutral" cx="226" cy="106" r="22" />
-        <text x="70" y="144" fill="#94a3b8" font-size="11">Embedded class selectors only</text>
-      `,
-      `
-        .dot {
-          stroke: #e2e8f0;
-          stroke-width: 3;
-        }
-
-        .cool {
-          fill: #38bdf8;
-        }
-
-        .warm {
-          fill: #f97316;
-        }
-
-        .neutral {
-          fill: #94a3b8;
-        }
-      `,
-      "May work on GitHub",
-    ),
   ];
 }

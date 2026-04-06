@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="180" viewBox="0 0 320 180" role="img" aria-labelledby="title desc">
+<title id="title">foreignObject HTML block</title>
+<desc id="desc">Embeds HTML inside the SVG as a browser-oriented compatibility edge case.</desc>
+
+<rect width="320" height="180" rx="18" fill="#020617"/>
+<rect x="8" y="8" width="304" height="164" rx="16" fill="#0f172a" stroke="#1e293b"/>
+<text x="16" y="24" fill="#f8fafc" font-size="16" font-weight="700" font-family="Inter, Arial, sans-serif">foreignObject HTML block</text>
+<text x="16" y="38" fill="#94a3b8" font-size="11" font-family="Inter, Arial, sans-serif">Embeds HTML inside the SVG as a browser-oriented compatibility edge case.</text>
+<text x="16" y="60" fill="#94a3b8" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">CANVAS</text>
+<text x="82" y="60" fill="#e2e8f0" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">320×180</text>
+<rect x="16" y="48" width="288" height="116" rx="14" fill="#111827" stroke="#334155"/>
+<g opacity="0.24">
+<path d="M16 106 H304" stroke="#1e293b" stroke-width="1"/>
+<path d="M16 76 H304" stroke="#1e293b" stroke-width="1"/>
+<path d="M96 48 V164" stroke="#1e293b" stroke-width="1"/>
+<path d="M176 48 V164" stroke="#1e293b" stroke-width="1"/>
+<path d="M256 48 V164" stroke="#1e293b" stroke-width="1"/>
+</g>
+
+        <rect x="48" y="60" width="224" height="86" rx="16" fill="#0f172a" stroke="#475569" stroke-dasharray="6 5" />
+        <!-- foreignObject is intentionally included because it is commonly sanitized in GitHub-rendered SVGs. -->
+        <foreignObject x="58" y="70" width="204" height="66">
+          <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: Inter, Arial, sans-serif; color: #e2e8f0;">
+            <div style="font-size: 13px; font-weight: 700; margin-bottom: 6px;">HTML inside SVG</div>
+            <div style="font-size: 12px; line-height: 1.35;">
+              This block should render in a normal browser. GitHub may sanitize or ignore it.
+            </div>
+          </div>
+        </foreignObject>
+        <text x="60" y="154" fill="#94a3b8" font-size="11">Use this as a negative or inconsistent compatibility probe.</text>
+      
+
+</svg>
