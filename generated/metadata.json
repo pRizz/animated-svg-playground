@@ -1,0 +1,288 @@
+{
+  "generatedAt": "2026-04-06T17:14:13.338Z",
+  "exampleCount": 25,
+  "canvas": {
+    "width": 320,
+    "height": 180,
+    "viewBox": "0 0 320 180"
+  },
+  "categories": [
+    {
+      "id": "static",
+      "title": "Basic static SVG controls",
+      "description": "Baseline primitives and non-animated SVG features."
+    },
+    {
+      "id": "smil",
+      "title": "SMIL animation primitives",
+      "description": "SVG-native animation elements such as animate and animateTransform."
+    },
+    {
+      "id": "stroke",
+      "title": "Stroke drawing effects",
+      "description": "Dash-based reveal and looping stroke animations."
+    },
+    {
+      "id": "css",
+      "title": "CSS-based SVG animation experiments",
+      "description": "Inline style blocks, classes, and CSS keyframe animation inside SVG."
+    },
+    {
+      "id": "edge",
+      "title": "Feature edge cases",
+      "description": "Reuse, filters, and features that are often sanitized or inconsistent."
+    }
+  ],
+  "examples": [
+    {
+      "id": "static-clip-path",
+      "title": "clipPath example",
+      "description": "A clipped pattern inside a circle to verify clipPath defs usage.",
+      "category": "static",
+      "filename": "static-clip-path.svg",
+      "path": "generated/svg/static-clip-path.svg",
+      "expectation": "May work on GitHub",
+      "compatibilityNotes": "clipPath often works, but it is useful to verify defs-heavy features directly in GitHub."
+    },
+    {
+      "id": "static-gradient-fill",
+      "title": "Gradient fill",
+      "description": "Linear gradient with a simple glossy badge shape.",
+      "category": "static",
+      "filename": "static-gradient-fill.svg",
+      "path": "generated/svg/static-gradient-fill.svg",
+      "expectation": "May work on GitHub",
+      "compatibilityNotes": "Gradient defs are commonly supported, but they verify that defs survive the renderer."
+    },
+    {
+      "id": "static-path-stroke",
+      "title": "Path and stroke",
+      "description": "Curved path with visible control-point markers and thick stroke styling.",
+      "category": "static",
+      "filename": "static-path-stroke.svg",
+      "path": "generated/svg/static-path-stroke.svg",
+      "expectation": "May work on GitHub",
+      "compatibilityNotes": "Complex paths still render as plain SVG and are usually safe on GitHub."
+    },
+    {
+      "id": "static-simple-circle",
+      "title": "Simple circle",
+      "description": "Single filled circle with a baseline label and no animation.",
+      "category": "static",
+      "filename": "static-simple-circle.svg",
+      "path": "generated/svg/static-simple-circle.svg",
+      "expectation": "May work on GitHub",
+      "compatibilityNotes": "Plain shape rendering is typically stable in browsers and GitHub image rendering."
+    },
+    {
+      "id": "static-simple-rect",
+      "title": "Simple rect",
+      "description": "Rounded rectangle with stroke and layered highlight.",
+      "category": "static",
+      "filename": "static-simple-rect.svg",
+      "path": "generated/svg/static-simple-rect.svg",
+      "expectation": "May work on GitHub",
+      "compatibilityNotes": "Inline rectangle geometry and stroke attributes should be broadly compatible."
+    },
+    {
+      "id": "static-text-label",
+      "title": "Text example",
+      "description": "Mixed text sizes and weights to probe plain SVG text rendering.",
+      "category": "static",
+      "filename": "static-text-label.svg",
+      "path": "generated/svg/static-text-label.svg",
+      "expectation": "May work on GitHub",
+      "compatibilityNotes": "SVG text generally works, though font metrics may vary between environments."
+    },
+    {
+      "id": "smil-additive-accumulate",
+      "title": "SMIL additive accumulate",
+      "description": "Stacks repeated translation and rotation using additive and accumulate behavior.",
+      "category": "smil",
+      "filename": "smil-additive-accumulate.svg",
+      "path": "generated/svg/smil-additive-accumulate.svg",
+      "expectation": "Likely works in browsers",
+      "compatibilityNotes": "More advanced SMIL timing model coverage; if unsupported, the shape may appear static or partially animated."
+    },
+    {
+      "id": "smil-animate-cx",
+      "title": "SMIL animate for cx",
+      "description": "Moves a circle horizontally by animating the cx attribute.",
+      "category": "smil",
+      "filename": "smil-animate-cx.svg",
+      "path": "generated/svg/smil-animate-cx.svg",
+      "expectation": "Likely works in browsers",
+      "compatibilityNotes": "A direct animate-on-attribute test. Browsers usually support it, while GitHub may show only the initial frame."
+    },
+    {
+      "id": "smil-animate-fill",
+      "title": "SMIL animate for fill",
+      "description": "Cycles a rectangle through multiple fill colors.",
+      "category": "smil",
+      "filename": "smil-animate-fill.svg",
+      "path": "generated/svg/smil-animate-fill.svg",
+      "expectation": "Likely works in browsers",
+      "compatibilityNotes": "Good for checking whether animated presentation attributes survive rendering."
+    },
+    {
+      "id": "smil-motion-path",
+      "title": "SMIL animateMotion path follow",
+      "description": "Moves a dot along a visible guide path.",
+      "category": "smil",
+      "filename": "smil-motion-path.svg",
+      "path": "generated/svg/smil-motion-path.svg",
+      "expectation": "Likely works in browsers",
+      "compatibilityNotes": "animateMotion is historically less universal than basic animate, making it a good compatibility probe."
+    },
+    {
+      "id": "smil-multiple-animations",
+      "title": "SMIL multiple animate elements",
+      "description": "Animates position, radius, and fill on one element at the same time.",
+      "category": "smil",
+      "filename": "smil-multiple-animations.svg",
+      "path": "generated/svg/smil-multiple-animations.svg",
+      "expectation": "Likely works in browsers",
+      "compatibilityNotes": "Good for testing whether multiple child animation nodes on the same target are all honored."
+    },
+    {
+      "id": "smil-opacity-pulse",
+      "title": "SMIL opacity pulse",
+      "description": "Pulses element opacity with a simple animate element.",
+      "category": "smil",
+      "filename": "smil-opacity-pulse.svg",
+      "path": "generated/svg/smil-opacity-pulse.svg",
+      "expectation": "Likely works in browsers",
+      "compatibilityNotes": "Useful for determining whether opacity changes animate or only the static state is shown."
+    },
+    {
+      "id": "smil-set-toggle-timing",
+      "title": "SMIL set with timing offsets",
+      "description": "Uses set elements to toggle visibility with begin offsets and durations.",
+      "category": "smil",
+      "filename": "smil-set-toggle-timing.svg",
+      "path": "generated/svg/smil-set-toggle-timing.svg",
+      "expectation": "Likely works in browsers",
+      "compatibilityNotes": "Tests set timing behavior, which can be easier to reason about than full interpolation."
+    },
+    {
+      "id": "smil-transform-suite",
+      "title": "SMIL transform rotate, scale, translate",
+      "description": "Runs three animateTransform variants side-by-side.",
+      "category": "smil",
+      "filename": "smil-transform-suite.svg",
+      "path": "generated/svg/smil-transform-suite.svg",
+      "expectation": "Likely works in browsers",
+      "compatibilityNotes": "Combines rotate, scale, and translate to compare transform-specific behavior in one SVG."
+    },
+    {
+      "id": "stroke-circle-progress",
+      "title": "Circular progress animation",
+      "description": "A circular arc animates with stroke dashes like a progress ring.",
+      "category": "stroke",
+      "filename": "stroke-circle-progress.svg",
+      "path": "generated/svg/stroke-circle-progress.svg",
+      "expectation": "Likely works in browsers",
+      "compatibilityNotes": "The static ring should render everywhere; the animated progress effect may be browser-only in practice."
+    },
+    {
+      "id": "stroke-dash-reveal",
+      "title": "Stroke dash reveal",
+      "description": "Uses dash offset animation to reveal a polyline drawing.",
+      "category": "stroke",
+      "filename": "stroke-dash-reveal.svg",
+      "path": "generated/svg/stroke-dash-reveal.svg",
+      "expectation": "Likely works in browsers",
+      "compatibilityNotes": "Dash styling usually renders on GitHub, but animation may not play there."
+    },
+    {
+      "id": "stroke-loop-draw",
+      "title": "Looping line draw",
+      "description": "A looping rectangular route continuously redraws itself.",
+      "category": "stroke",
+      "filename": "stroke-loop-draw.svg",
+      "path": "generated/svg/stroke-loop-draw.svg",
+      "expectation": "Likely works in browsers",
+      "compatibilityNotes": "This is still SMIL-based, so browser support is stronger than GitHub playback."
+    },
+    {
+      "id": "css-color-transition",
+      "title": "CSS color transition",
+      "description": "Class-based color cycling for a central badge.",
+      "category": "css",
+      "filename": "css-color-transition.svg",
+      "path": "generated/svg/css-color-transition.svg",
+      "expectation": "May work on GitHub",
+      "compatibilityNotes": "Embedded style tags may be preserved in some contexts but are not guaranteed on GitHub."
+    },
+    {
+      "id": "css-keyframes-move",
+      "title": "CSS keyframes movement",
+      "description": "Inline style block animating horizontal movement with keyframes.",
+      "category": "css",
+      "filename": "css-keyframes-move.svg",
+      "path": "generated/svg/css-keyframes-move.svg",
+      "expectation": "May work on GitHub",
+      "compatibilityNotes": "CSS animation inside SVG tends to work in browsers, but GitHub may render a static first frame."
+    },
+    {
+      "id": "css-opacity-blink",
+      "title": "CSS opacity blink",
+      "description": "Simple blinking dots using a shared class and staggered timing.",
+      "category": "css",
+      "filename": "css-opacity-blink.svg",
+      "path": "generated/svg/css-opacity-blink.svg",
+      "expectation": "May work on GitHub",
+      "compatibilityNotes": "A useful experiment for whether CSS animation survives sanitization or becomes a static snapshot."
+    },
+    {
+      "id": "css-stroke-reveal",
+      "title": "CSS stroke reveal",
+      "description": "Path reveal using stroke-dashoffset animated through CSS.",
+      "category": "css",
+      "filename": "css-stroke-reveal.svg",
+      "path": "generated/svg/css-stroke-reveal.svg",
+      "expectation": "May work on GitHub",
+      "compatibilityNotes": "This combines class-based styling and dash animation, which is informative for browser-vs-GitHub comparisons."
+    },
+    {
+      "id": "edge-filter-shadow",
+      "title": "Filter with drop shadow",
+      "description": "Uses a blur and offset filter chain to simulate a shadowed card.",
+      "category": "edge",
+      "filename": "edge-filter-shadow.svg",
+      "path": "generated/svg/edge-filter-shadow.svg",
+      "expectation": "May work on GitHub",
+      "compatibilityNotes": "Basic filters often work in browsers, but GitHub may sanitize or flatten them differently."
+    },
+    {
+      "id": "edge-foreign-object",
+      "title": "foreignObject HTML block",
+      "description": "Embeds HTML inside the SVG as a browser-oriented compatibility edge case.",
+      "category": "edge",
+      "filename": "edge-foreign-object.svg",
+      "path": "generated/svg/edge-foreign-object.svg",
+      "expectation": "Likely sanitized or ignored on GitHub",
+      "compatibilityNotes": "foreignObject content is a known sanitization risk and is often stripped or rendered inconsistently on GitHub."
+    },
+    {
+      "id": "edge-script-negative",
+      "title": "Script tag negative test",
+      "description": "Includes a tiny script to confirm that active content is blocked or ignored.",
+      "category": "edge",
+      "filename": "edge-script-negative.svg",
+      "path": "generated/svg/edge-script-negative.svg",
+      "expectation": "Likely sanitized or ignored on GitHub",
+      "compatibilityNotes": "Script execution in SVG is typically blocked in repository rendering for security reasons."
+    },
+    {
+      "id": "edge-symbol-reuse",
+      "title": "Symbol and use reuse",
+      "description": "Reuses one symbol instance at multiple sizes to test defs-based reuse.",
+      "category": "edge",
+      "filename": "edge-symbol-reuse.svg",
+      "path": "generated/svg/edge-symbol-reuse.svg",
+      "expectation": "May work on GitHub",
+      "compatibilityNotes": "Symbol and use are usually preserved, but symbol references are still worth checking in repository rendering."
+    }
+  ]
+}

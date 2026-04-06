@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="180" viewBox="0 0 320 180" role="img" aria-labelledby="title desc">
+<title id="title">Script tag negative test</title>
+<desc id="desc">Includes a tiny script to confirm that active content is blocked or ignored.</desc>
+
+<rect width="320" height="180" rx="18" fill="#020617"/>
+<rect x="8" y="8" width="304" height="164" rx="16" fill="#0f172a" stroke="#1e293b"/>
+<text x="16" y="24" fill="#f8fafc" font-size="16" font-weight="700" font-family="Inter, Arial, sans-serif">Script tag negative test</text>
+<text x="16" y="38" fill="#94a3b8" font-size="11" font-family="Inter, Arial, sans-serif">Includes a tiny script to confirm that active content is blocked or ignored.</text>
+<text x="16" y="60" fill="#94a3b8" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">CANVAS</text>
+<text x="82" y="60" fill="#e2e8f0" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">320×180</text>
+<rect x="16" y="48" width="288" height="116" rx="14" fill="#111827" stroke="#334155"/>
+<g opacity="0.24">
+<path d="M16 106 H304" stroke="#1e293b" stroke-width="1"/>
+<path d="M16 76 H304" stroke="#1e293b" stroke-width="1"/>
+<path d="M96 48 V164" stroke="#1e293b" stroke-width="1"/>
+<path d="M176 48 V164" stroke="#1e293b" stroke-width="1"/>
+<path d="M256 48 V164" stroke="#1e293b" stroke-width="1"/>
+</g>
+
+        <rect x="58" y="70" width="204" height="56" rx="16" fill="#1e293b" stroke="#ef4444" stroke-width="2" />
+        <text x="72" y="96" fill="#fecaca" font-size="15" font-weight="700">Script should be blocked</text>
+        <text x="72" y="116" fill="#cbd5e1" font-size="12">The circle below would move only if scripting were allowed.</text>
+        <circle id="script-target" cx="86" cy="145" r="10" fill="#ef4444" />
+        <!-- script elements are intentionally included as a negative test because GitHub should sanitize them. -->
+        <script><![CDATA[
+          const target = document.getElementById("script-target");
+          if (target) {
+            target.setAttribute("cx", "246");
+          }
+        ]]></script>
+      
+
+</svg>

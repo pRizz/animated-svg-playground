@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="180" viewBox="0 0 320 180" role="img" aria-labelledby="title desc">
+<title id="title">Gradient fill</title>
+<desc id="desc">Linear gradient with a simple glossy badge shape.</desc>
+<defs>
+
+        <linearGradient id="warmGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#ec4899" />
+          <stop offset="50%" stop-color="#f97316" />
+          <stop offset="100%" stop-color="#facc15" />
+        </linearGradient>
+      
+</defs>
+<rect width="320" height="180" rx="18" fill="#020617"/>
+<rect x="8" y="8" width="304" height="164" rx="16" fill="#0f172a" stroke="#1e293b"/>
+<text x="16" y="24" fill="#f8fafc" font-size="16" font-weight="700" font-family="Inter, Arial, sans-serif">Gradient fill</text>
+<text x="16" y="38" fill="#94a3b8" font-size="11" font-family="Inter, Arial, sans-serif">Linear gradient with a simple glossy badge shape.</text>
+<text x="16" y="60" fill="#94a3b8" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">CANVAS</text>
+<text x="82" y="60" fill="#e2e8f0" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">320×180</text>
+<rect x="16" y="48" width="288" height="116" rx="14" fill="#111827" stroke="#334155"/>
+<g opacity="0.24">
+<path d="M16 106 H304" stroke="#1e293b" stroke-width="1"/>
+<path d="M16 76 H304" stroke="#1e293b" stroke-width="1"/>
+<path d="M96 48 V164" stroke="#1e293b" stroke-width="1"/>
+<path d="M176 48 V164" stroke="#1e293b" stroke-width="1"/>
+<path d="M256 48 V164" stroke="#1e293b" stroke-width="1"/>
+</g>
+
+        <rect x="54" y="70" width="212" height="62" rx="18" fill="url(#warmGradient)" />
+        <ellipse cx="122" cy="88" rx="74" ry="18" fill="#ffffff" opacity="0.18" />
+        <text x="90" y="110" fill="#fff7ed" font-size="19" font-weight="700">Gradient</text>
+        <text x="90" y="126" fill="#ffedd5" font-size="11">linearGradient in defs</text>
+      
+
+</svg>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="180" viewBox="0 0 320 180" role="img" aria-labelledby="title desc">
+<title id="title">Filter with drop shadow</title>
+<desc id="desc">Uses a blur and offset filter chain to simulate a shadowed card.</desc>
+<defs>
+
+        <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="160%">
+          <feOffset dx="0" dy="8" in="SourceAlpha" result="offset" />
+          <feGaussianBlur in="offset" stdDeviation="8" result="blur" />
+          <feColorMatrix
+            in="blur"
+            type="matrix"
+            values="0 0 0 0 0.02 0 0 0 0 0.08 0 0 0 0 0.18 0 0 0 0.55 0"
+            result="shadow"
+          />
+          <feBlend in="SourceGraphic" in2="shadow" mode="normal" />
+        </filter>
+      
+</defs>
+<rect width="320" height="180" rx="18" fill="#020617"/>
+<rect x="8" y="8" width="304" height="164" rx="16" fill="#0f172a" stroke="#1e293b"/>
+<text x="16" y="24" fill="#f8fafc" font-size="16" font-weight="700" font-family="Inter, Arial, sans-serif">Filter with drop shadow</text>
+<text x="16" y="38" fill="#94a3b8" font-size="11" font-family="Inter, Arial, sans-serif">Uses a blur and offset filter chain to simulate a shadowed card.</text>
+<text x="16" y="60" fill="#94a3b8" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">CANVAS</text>
+<text x="82" y="60" fill="#e2e8f0" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">320×180</text>
+<rect x="16" y="48" width="288" height="116" rx="14" fill="#111827" stroke="#334155"/>
+<g opacity="0.24">
+<path d="M16 106 H304" stroke="#1e293b" stroke-width="1"/>
+<path d="M16 76 H304" stroke="#1e293b" stroke-width="1"/>
+<path d="M96 48 V164" stroke="#1e293b" stroke-width="1"/>
+<path d="M176 48 V164" stroke="#1e293b" stroke-width="1"/>
+<path d="M256 48 V164" stroke="#1e293b" stroke-width="1"/>
+</g>
+
+        <rect x="70" y="68" width="180" height="66" rx="18" fill="#0f172a" filter="url(#soft-shadow)" />
+        <circle cx="104" cy="101" r="14" fill="#22d3ee" />
+        <text x="128" y="95" fill="#e2e8f0" font-size="14" font-weight="700">Filter chain</text>
+        <text x="128" y="114" fill="#94a3b8" font-size="12">feOffset + feGaussianBlur + feColorMatrix</text>
+      
+
+</svg>

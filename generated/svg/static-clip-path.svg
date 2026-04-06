@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="180" viewBox="0 0 320 180" role="img" aria-labelledby="title desc">
+<title id="title">clipPath example</title>
+<desc id="desc">A clipped pattern inside a circle to verify clipPath defs usage.</desc>
+<defs>
+
+        <clipPath id="circleClip">
+          <circle cx="160" cy="106" r="44" />
+        </clipPath>
+      
+</defs>
+<rect width="320" height="180" rx="18" fill="#020617"/>
+<rect x="8" y="8" width="304" height="164" rx="16" fill="#0f172a" stroke="#1e293b"/>
+<text x="16" y="24" fill="#f8fafc" font-size="16" font-weight="700" font-family="Inter, Arial, sans-serif">clipPath example</text>
+<text x="16" y="38" fill="#94a3b8" font-size="11" font-family="Inter, Arial, sans-serif">A clipped pattern inside a circle to verify clipPath defs usage.</text>
+<text x="16" y="60" fill="#94a3b8" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">CANVAS</text>
+<text x="82" y="60" fill="#e2e8f0" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">320×180</text>
+<rect x="16" y="48" width="288" height="116" rx="14" fill="#111827" stroke="#334155"/>
+<g opacity="0.24">
+<path d="M16 106 H304" stroke="#1e293b" stroke-width="1"/>
+<path d="M16 76 H304" stroke="#1e293b" stroke-width="1"/>
+<path d="M96 48 V164" stroke="#1e293b" stroke-width="1"/>
+<path d="M176 48 V164" stroke="#1e293b" stroke-width="1"/>
+<path d="M256 48 V164" stroke="#1e293b" stroke-width="1"/>
+</g>
+
+        <g clip-path="url(#circleClip)">
+          <rect x="34" y="66" width="252" height="80" fill="#1d4ed8" />
+          <path d="M24 130 L126 42 L176 92 L246 48 L296 112" stroke="#bfdbfe" stroke-width="18" stroke-linecap="round" fill="none" opacity="0.85" />
+          <path d="M24 92 L98 140 L174 66 L244 122 L296 84" stroke="#93c5fd" stroke-width="14" stroke-linecap="round" fill="none" opacity="0.9" />
+        </g>
+        <circle cx="160" cy="106" r="44" fill="none" stroke="#e0f2fe" stroke-width="3" />
+        <text x="218" y="92" fill="#e2e8f0" font-size="14">clipPath</text>
+        <text x="218" y="110" fill="#94a3b8" font-size="11">Pattern clipped to a circle</text>
+      
+
+</svg>
