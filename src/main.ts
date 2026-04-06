@@ -16,6 +16,8 @@ import { renderReadme } from "./readme/renderReadme.ts";
 import { renderGeneratedSvgPath } from "./svg/helpers.ts";
 import type { GeneratedExampleMetadata, GeneratedMetadataDocument } from "./types.ts";
 
+const runtimeArgv = typeof Bun === "undefined" ? process.argv : Bun.argv;
+
 async function ensureOutputDirectories(): Promise<void> {
   await mkdir(generatedSvgDirectory, { recursive: true });
 }
@@ -74,7 +76,7 @@ async function writePreviewAndReadme(
   await writeFile(htmlPreviewOutputPath, previewHtml, "utf8");
   await writeFile(readmeOutputPath, readmeContent, "utf8");
 
-  if (Bun.argv.includes("--count")) {
+  if (runtimeArgv.includes("--count")) {
     console.log(metadata.exampleCount);
     return;
   }

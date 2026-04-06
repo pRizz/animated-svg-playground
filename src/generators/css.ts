@@ -1,5 +1,6 @@
 import type { ExampleDefinition } from "../types.ts";
 import { renderSvgDocument, renderStandardScene } from "../svg/base.ts";
+import { stripCommonIndentation } from "../svg/helpers.ts";
 
 function createCssExample(
   id: string,
@@ -19,6 +20,10 @@ function createCssExample(
     category: "css",
     expectation,
     compatibilityNotes,
+    maybeAnimationSnippet: {
+      language: "css",
+      code: stripCommonIndentation(styles),
+    },
     renderSvg: () =>
       renderSvgDocument({
         title,
